@@ -395,12 +395,12 @@ class BitBakeServer(object):
 
         ready = ConnectionReader(self.readypipe)
         r = ready.poll(30)
-        print("r after pool = " + r)
+        print("r after pool = " + str(r))
         if r:
             r = ready.get()
         if not r or r != "ready":
             ready.close()
-            print("r failed to open. r status is = " + r)
+            print("r failed to open. r status is = " + str(r))
             bb.error("Unable to start bitbake server")
             if os.path.exists(logfile):
                 logstart_re = re.compile(self.start_log_format % ('([0-9]+)', '([0-9-]+ [0-9:.]+)'))

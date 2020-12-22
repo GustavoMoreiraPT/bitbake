@@ -398,7 +398,7 @@ class DataSmart(MutableMapping):
 
     def expandWithRefs(self, s, varname):
 
-        print("varname is = " + varname)
+        print("varname is = " + str(varname))
         if not isinstance(s, str): # sanity check
             return VariableParse(varname, self, s)
 
@@ -410,8 +410,8 @@ class DataSmart(MutableMapping):
         while s.find('${') != -1:
             olds = s
             try:
-                print("varparse is = " + varparse)
-                print("s is = " + s)
+                print("varparse is = " + str(varparse))
+                print("s is = " + str(s))
                 s = __expand_var_regexp__.sub(varparse.var_sub, s)
                 try:
                     s = __expand_python_regexp__.sub(varparse.python_sub, s)
