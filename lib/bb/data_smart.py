@@ -398,13 +398,13 @@ class DataSmart(MutableMapping):
 
     def expandWithRefs(self, s, varname):
 
-        print("varname is = " + str(varname))
+        print("varname is " + str(varname))
         if not isinstance(s, str): # sanity check
-            print("using cache for varname is instance")
+            print("using instance for varname. calling VariableParse method")
             return VariableParse(varname, self, s)
 
         if varname and varname in self.expand_cache:
-            print("using cache for varname")
+            print("using cache for varname. calling expand_cache")
             return self.expand_cache[varname]
 
         varparse = VariableParse(varname, self)

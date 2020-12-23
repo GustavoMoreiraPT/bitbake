@@ -395,7 +395,7 @@ class BitBakeServer(object):
 
         ready = ConnectionReader(self.readypipe)
         r = ready.poll(30)
-        print("r after pool = " + str(r))
+        print("r after pool is " + str(r))
         if r:
             r = ready.get()
         if not r or r != "ready":
