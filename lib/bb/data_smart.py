@@ -400,9 +400,11 @@ class DataSmart(MutableMapping):
 
         print("varname is = " + str(varname))
         if not isinstance(s, str): # sanity check
+            print("using cache for varname is instance")
             return VariableParse(varname, self, s)
 
         if varname and varname in self.expand_cache:
+            print("using cache for varname")
             return self.expand_cache[varname]
 
         varparse = VariableParse(varname, self)
